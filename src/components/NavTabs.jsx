@@ -1,50 +1,65 @@
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-// Here we are using object destructuring assignment to pluck off our variables from the props object
-// We assign them to their own variable names
 function NavTabs() {
   const currentPage = useLocation().pathname;
 
   return (
-    <ul className="nav nav-tabs">
-      <li className="nav-item">
-        <Link
-          to="/"
-          // This is a conditional (ternary) operator that checks to see if the current page is "Home"
-          // If it is, we set the current page to 'nav-link-active', otherwise we set it to 'nav-link'
-          className={currentPage === '/' ? 'nav-link active' : 'nav-link'}
+    <nav className="navbar navbar-expand-lg navbar-light">
+      <div className="container">
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
-          Home
-        </Link>
-      </li>
-      <li className="nav-item">
-        <Link
-          to="/About"
-          // Check to see if the currentPage is `About`, and if so we use the active link class from bootstrap. Otherwise, we set it to a normal nav-link
-          className={currentPage === '/About' ? 'nav-link active' : 'nav-link'}
-        >
-          About
-        </Link>
-      </li>
-      <li className="nav-item">
-        <Link
-          to="/Blog"
-          // Check to see if the currentPage is `Blog`, and if so we use the active link class from bootstrap. Otherwise, we set it to a normal nav-link
-          className={currentPage === '/Blog' ? 'nav-link active' : 'nav-link'}
-        >
-          Blog
-        </Link>
-      </li>
-      <li className="nav-item">
-        <Link
-          to="/Contact"
-          // Check to see if the currentPage is `Contact`, and if so we use the active link class from bootstrap. Otherwise, we set it to a normal nav-link
-          className={currentPage === '/Contact' ? 'nav-link active' : 'nav-link'}
-        >
-          Contact
-        </Link>
-      </li>
-    </ul>
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ml-0"> {/* Adjusted margin with ml-0 */}
+            <li className="nav-item">
+              <Link
+                to="/"
+                className={currentPage === '/' ? 'nav-link active' : 'nav-link'}
+                style={{ fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 'bold', color: '#333', textTransform: 'uppercase' }}
+              >
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                to="/About"
+                className={currentPage === '/About' ? 'nav-link active' : 'nav-link'}
+                style={{ fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 'bold', color: '#333', textTransform: 'uppercase' }}
+              >
+                About
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                to="/Gallery"
+                className={currentPage === '/Gallery' ? 'nav-link active' : 'nav-link'}
+                style={{ fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 'bold', color: '#333', textTransform: 'uppercase' }}
+              >
+                Gallery
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                to="/Contact"
+                className={currentPage === '/Contact' ? 'nav-link active' : 'nav-link'}
+                style={{ fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 'bold', color: '#333', textTransform: 'uppercase' }}
+              >
+                Contact
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 }
 
